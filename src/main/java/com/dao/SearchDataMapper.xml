@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.SearchDataMapper">
+
+    <resultMap type="CrawlData" id="SearchDataResultMap">
+        <result property="_id"              column="id" />
+        <result property="_product_id"      column="product_id" />
+        <result property="_product_name"    column="product_name" />
+        <result property="_brand_name"      column="brand_name" />
+        <result property="_url"             column="url" />
+        <result property="_thumb_url"       column="thumb_url" />
+        <result property="_org_price"       column="org_price" />
+        <result property="_sale_price"      column="sale_price" />
+        <result property="_sale_per"        column="sale_per" />
+        <result property="_cp"              column="cp" />
+        <result property="_keyword"         column="keyword" />
+        <result property="_status"          column="status" />
+        <result property="_seed_url"        column="seed_url" />
+        <result property="_date"            column="date" />
+    </resultMap>
+
+    <!-- id의 경우에는 Mapper.java에 동일하게 사용해야된다. -->
+    <select id="getCrawlDataAll" resultMap="SearchDataResultMap">
+        SELECT * FROM search
+    </select>
+
+    <!-- parameterType 에는 구문에 전달될 파라미터의 패키지 경로를 포함한 전체 클래명이나 별칭이 들어간다  -->
+    <insert id="insertCrawlData" parameterType="com.dao.SearchData" >
+        INSERT INTO search values(#{_name},#{_email},#{_phone})
+    </insert>
+
+    <!-- update는 생략한다. -->
+    <update id=""></update>
+
+    <delete id="deleteCrawlData" parameterType="com.dao.SearchData">
+        DELTE search WHERE(name=#{_name})
+    </delete>
+
+</mapper>
