@@ -5,7 +5,7 @@
 
 <mapper namespace="com.dao.SearchDataMapper">
 
-    <resultMap type="CrawlData" id="SearchDataResultMap">
+    <resultMap type="SearchData" id="SearchDataResultMap">
         <result property="_id"              column="id" />
         <result property="_product_id"      column="product_id" />
         <result property="_product_name"    column="product_name" />
@@ -23,7 +23,7 @@
     </resultMap>
 
     <!-- id의 경우에는 Mapper.java에 동일하게 사용해야된다. -->
-    <select id="getCrawlDataAll" resultMap="SearchDataResultMap">
+    <select id="getSearchDataAll" resultMap="SearchDataResultMap">
         SELECT * FROM search
     </select>
 

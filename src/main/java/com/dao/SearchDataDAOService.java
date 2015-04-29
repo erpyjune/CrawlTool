@@ -11,6 +11,7 @@ import java.util.ArrayList;
  */
 @Repository
 public class SearchDataDAOService implements SearchDataDAO {
+
     @Autowired
     private SqlSession sqlSession;
 
