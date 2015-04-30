@@ -1,11 +1,9 @@
 package com.erpy.crawltool;
 
-import com.dao.SearchData;
-import com.dao.SearchDataDAOService;
-import org.apache.ibatis.session.SqlSession;
+import com.search.SearchData;
+import com.search.SearchDataDAOService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,7 +23,8 @@ public class CrawlController {
     public ModelAndView getSearchListAll(ModelAndView model) {
         List<SearchData> searchDataList = searchDataDAOService.getAllSearchData();
         model.addObject("message", "Hello world!");
-        model.setViewName("hello");
+        model.addObject("searchList", searchDataList);
+        model.setViewName("main");
         return model;
     }
 }

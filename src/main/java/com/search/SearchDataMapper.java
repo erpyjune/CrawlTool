@@ -1,4 +1,4 @@
-package com.dao;
+package com.search;
 
 import java.util.ArrayList;
 

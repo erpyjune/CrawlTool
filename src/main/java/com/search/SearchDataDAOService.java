@@ -1,4 +1,4 @@
-package com.dao;
+package com.search;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,6 @@ public class SearchDataDAOService implements SearchDataDAO {
     @Override
     public ArrayList<SearchData> getAllSearchData() {
         SearchDataMapper searchDataMapper = sqlSession.getMapper(SearchDataMapper.class);
-        ArrayList<SearchData> result = searchDataMapper.getSearchDataAll();
-        return result;
+        return searchDataMapper.getSearchDataAll();
     }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.seed.SeedMapper">
+
+    <resultMap type="Seed" id="SeedResultMap">
+        <result property="_id"              column="id" />
+        <result property="_keyword"         column="keyword" />
+        <result property="_url"             column="url" />
+        <result property="_cp"              column="cp" />
+    </resultMap>
+
+    <!-- id의 경우에는 Mapper.java에 동일하게 사용해야된다. -->
+    <select id="getSeedDataAll" resultMap="SeedResultMap">
+        SELECT * FROM search
+    </select>
+
+    <!-- parameterType 에는 구문에 전달될 파라미터의 패키지 경로를 포함한 전체 클래명이나 별칭이 들어간다  -->
+    <insert id="insertSeedData" parameterType="com.seed.Seed" >
+        INSERT INTO seed values(#{_id},#{_keyword},#{_url},#{_cp})
+    </insert>
+
+    <!-- update는 생략한다. -->
+    <update id=""></update>
+
+    <delete id="deleteSeedData" parameterType="com.seed.Seed">
+        DELTE seed WHERE(name=#{_name})
+    </delete>
+
+</mapper>
